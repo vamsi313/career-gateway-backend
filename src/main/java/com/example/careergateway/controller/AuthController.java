@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -96,6 +95,7 @@ public class AuthController {
                 return ResponseEntity.ok(new ApiResponse<>(true, null, user));
             }
         }
+        return ResponseEntity.status(401).body(new ApiResponse<>(false, "Invalid credentials", null));
         
     }
 }
