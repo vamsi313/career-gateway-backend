@@ -1,0 +1,31 @@
+databases:
+  - name: career-gateway-db
+    databaseName: gateway_db
+    user: gateway_user
+    plan: free
+    region: oregon
+
+services:
+  - type: web
+    name: career-gateway-backend
+    runtime: docker
+    plan: free
+    region: oregon
+    healthCheckPath: /api/auth/signin
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: career-gateway-db
+          property: connectionURI
+      - key: DATABASE_USERNAME
+        fromDatabase:
+          name: career-gateway-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: career-gateway-db
+          property: password
+      - key: JPA_DIALECT
+        value: org.hibernate.dialect.PostgreSQLDialect
+      - key: PORT
+        value: 8080
