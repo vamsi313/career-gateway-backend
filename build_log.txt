@@ -61,3 +61,23 @@ WARNING: Restricted methods will be blocked in a future release unless native ac
 2026-04-07T20:56:20.523+05:30  WARN 3752 --- [career-gateway-backend] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2026-04-07T20:56:21.171+05:30  INFO 3752 --- [career-gateway-backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
 2026-04-07T20:56:21.180+05:30  INFO 3752 --- [career-gateway-backend] [           main] c.e.c.CareerGatewayBackendApplication    : Started CareerGatewayBackendApplication in 4.345 seconds (process running for 4.691)
+2026-04-07T20:57:18.326+05:30  INFO 3752 --- [career-gateway-backend] [nio-8080-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [g_state={"i_l":0,"i_ll":1761208690858,"i_b":"sW/4UcNSiDAA5tWmZMlJpHEhDLtgs6Uj4We/LejYgSs"}] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-04-07T20:57:18.334+05:30  INFO 3752 --- [career-gateway-backend] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07T20:57:18.334+05:30  INFO 3752 --- [career-gateway-backend] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-07T20:57:18.334+05:30  INFO 3752 --- [career-gateway-backend] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Hibernate: select u1_0.id,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+Hibernate: insert into users (created_at,email,name,password,role) values (?,?,?,?,?)
+Hibernate: insert into assessment_results (answers_json,assessment_type,completed_at,user_id) values (?,?,?,?)
+Hibernate: select ar1_0.id,ar1_0.answers_json,ar1_0.assessment_type,ar1_0.completed_at,ar1_0.user_id from assessment_results ar1_0 where ar1_0.user_id=?
+Hibernate: select ar1_0.id,ar1_0.answers_json,ar1_0.assessment_type,ar1_0.completed_at,ar1_0.user_id from assessment_results ar1_0 where ar1_0.user_id=?
+2026-04-07T21:15:45.323+05:30  INFO 3752 --- [career-gateway-backend] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07T21:15:45.325+05:30  INFO 3752 --- [career-gateway-backend] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-07T21:15:45.331+05:30  INFO 3752 --- [career-gateway-backend] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19:30 min
+[INFO] Finished at: 2026-04-07T21:15:45+05:30
+[INFO] ------------------------------------------------------------------------
+Terminate batch job (Y/N)? 
