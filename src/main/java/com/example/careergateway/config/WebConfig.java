@@ -13,15 +13,10 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        var mapping = registry.addMapping("/api/**")
-                .allowedOrigins("http://localhost:5173", "http://localhost:3000")
+        registry.addMapping("/api/**")
+                .allowedOriginPatterns("*")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
-
-        // Add Railway frontend URL if configured
-        if (frontendUrl != null && !frontendUrl.isEmpty()) {
-            mapping.allowedOrigins("http://localhost:5173", "http://localhost:3000", frontendUrl);
-        }
     }
 }

@@ -61,6 +61,12 @@ public class User {
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 
+    @Transient
+    private String token;
+
+    public String getToken() { return token; }
+    public void setToken(String token) { this.token = token; }
+
     // Builder pattern
     public static UserBuilder builder() { return new UserBuilder(); }
 

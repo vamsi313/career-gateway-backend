@@ -10,4 +10,7 @@ import java.util.List;
 public interface AssessmentResultRepository extends JpaRepository<AssessmentResult, Long> {
     List<AssessmentResult> findByUserId(Long userId);
     List<AssessmentResult> findByUserIdAndAssessmentType(Long userId, String assessmentType);
+    
+    @org.springframework.transaction.annotation.Transactional
+    void deleteByUserId(Long userId);
 }
