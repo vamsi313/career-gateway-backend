@@ -1,7 +1,18 @@
 package com.example.careergateway.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
+/**
+ * DTO for user login requests.
+ */
 public class SignInRequest {
+    
+    @NotBlank(message = "Email is required")
+    @Email(message = "Please provide a valid email address")
     private String email;
+    
+    @NotBlank(message = "Password is required")
     private String password;
 
     public SignInRequest() {}
