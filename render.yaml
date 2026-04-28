@@ -13,15 +13,23 @@ services:
     region: oregon
     healthCheckPath: /api/auth/signin
     envVars:
-      - key: DATABASE_URL
+      - key: DB_HOST
         fromDatabase:
           name: career-gateway-db
-          property: connectionString
-      - key: DATABASE_USERNAME
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: career-gateway-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: career-gateway-db
+          property: database
+      - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
           name: career-gateway-db
           property: user
-      - key: DATABASE_PASSWORD
+      - key: SPRING_DATASOURCE_PASSWORD
         fromDatabase:
           name: career-gateway-db
           property: password
