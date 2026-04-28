@@ -31,12 +31,17 @@ public class DatabaseConfig {
                 URI dbUri = new URI(databaseUrl);
                 String username = dbUri.getUserInfo().split(":")[0];
                 String password = dbUri.getUserInfo().split(":")[1];
-                String jdbcUrl = "jdbc:postgresql://" + dbUri.getHost() + ":" + dbUri.getPort() + dbUri.getPath();
+                int port = dbUri.getPort();
+                if (port == -1) {
+                    port = 5432; // Default PostgreSQL port
+                }
+                String jdbcUrl = "jdbc:postgresql://" + dbUri.getHost() + ":" + port + dbUri.getPath();
 
                 logger.info("JDBC URL: {}", jdbcUrl);
                 logger.info("DB Username: {}", username);
 
                 HikariConfig config = new HikariConfig();
+                config.setDriverClassName("org.postgresql.Driver");
                 config.setJdbcUrl(jdbcUrl);
                 config.setUsername(username);
                 config.setPassword(password);
