@@ -16,7 +16,7 @@ services:
       - key: DATABASE_URL
         fromDatabase:
           name: career-gateway-db
-          property: connectionURI
+          property: connectionString
       - key: DATABASE_USERNAME
         fromDatabase:
           name: career-gateway-db
