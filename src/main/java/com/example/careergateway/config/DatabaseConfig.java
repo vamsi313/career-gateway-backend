@@ -35,7 +35,7 @@ public class DatabaseConfig {
                 if (port == -1) {
                     port = 5432; // Default PostgreSQL port
                 }
-                String jdbcUrl = "jdbc:postgresql://" + dbUri.getHost() + ":" + port + dbUri.getPath();
+                String jdbcUrl = "jdbc:postgresql://" + dbUri.getHost() + ":" + port + dbUri.getPath() + "?sslmode=require";
 
                 logger.info("JDBC URL: {}", jdbcUrl);
                 logger.info("DB Username: {}", username);
