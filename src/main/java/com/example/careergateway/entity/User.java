@@ -67,6 +67,17 @@ public class User {
     public String getToken() { return token; }
     public void setToken(String token) { this.token = token; }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", role='" + role + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
+    }
+
     // Builder pattern
     public static UserBuilder builder() { return new UserBuilder(); }
 

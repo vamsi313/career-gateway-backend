@@ -54,6 +54,16 @@ public class AssessmentResult {
     public LocalDateTime getCompletedAt() { return completedAt; }
     public void setCompletedAt(LocalDateTime completedAt) { this.completedAt = completedAt; }
 
+    @Override
+    public String toString() {
+        return "AssessmentResult{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", assessmentType='" + assessmentType + '\'' +
+                ", completedAt=" + completedAt +
+                '}';
+    }
+
     // Builder pattern
     public static AssessmentResultBuilder builder() { return new AssessmentResultBuilder(); }
 
