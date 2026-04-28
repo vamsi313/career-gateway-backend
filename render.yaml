@@ -11,29 +11,11 @@ services:
     runtime: docker
     plan: free
     region: oregon
-    healthCheckPath: /api/auth/signin
+    healthCheckPath: /api/health
     envVars:
-      - key: DB_HOST
+      - key: DATABASE_URL
         fromDatabase:
           name: career-gateway-db
-          property: host
-      - key: DB_PORT
-        fromDatabase:
-          name: career-gateway-db
-          property: port
-      - key: DB_NAME
-        fromDatabase:
-          name: career-gateway-db
-          property: database
-      - key: SPRING_DATASOURCE_USERNAME
-        fromDatabase:
-          name: career-gateway-db
-          property: user
-      - key: SPRING_DATASOURCE_PASSWORD
-        fromDatabase:
-          name: career-gateway-db
-          property: password
-      - key: JPA_DIALECT
-        value: org.hibernate.dialect.PostgreSQLDialect
+          property: connectionString
       - key: PORT
         value: 8080
