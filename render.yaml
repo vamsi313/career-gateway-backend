@@ -1,10 +1,3 @@
-databases:
-  - name: career-gateway-db
-    databaseName: gateway_db
-    user: gateway_user
-    plan: free
-    region: oregon
-
 services:
   - type: web
     name: career-gateway-backend
@@ -14,8 +7,6 @@ services:
     healthCheckPath: /api/health
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: career-gateway-db
-          property: connectionString
+        value: postgresql://neondb_owner:npg_imqVphHG48nb@ep-divine-glade-ane77g7p-pooler.c-6.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
       - key: PORT
         value: 8080
